@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/ShoppingSMU.iml" filepath="$PROJECT_DIR$/ShoppingSMU.iml" />
+      <module fileurl="file://$PROJECT_DIR$/example/example.iml" filepath="$PROJECT_DIR$/example/example.iml" />
+      <module fileurl="file://$PROJECT_DIR$/volvane-annotations/volvane-annotations.iml" filepath="$PROJECT_DIR$/volvane-annotations/volvane-annotations.iml" />
+      <module fileurl="file://$PROJECT_DIR$/volvane-compiler/volvane-compiler.iml" filepath="$PROJECT_DIR$/volvane-compiler/volvane-compiler.iml" />
+      <module fileurl="file://$PROJECT_DIR$/volvane-core/volvane-core.iml" filepath="$PROJECT_DIR$/volvane-core/volvane-core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/volvane-ec/volvane-ec.iml" filepath="$PROJECT_DIR$/volvane-ec/volvane-ec.iml" />
+    </modules>
+  </component>
+</project>
