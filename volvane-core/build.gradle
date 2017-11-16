@@ -31,4 +31,10 @@ dependencies {
     compile 'com.android.support:appcompat-v7:25.3.1'
     testCompile 'junit:junit:4.12'
     compile project(':volvane-annotations')
+
+
+    /*https://github.com/YoKeyword/Fragmentation*/
+    compile 'me.yokeyword:fragmentation:1.1.8'
+    compile 'me.yokeyword:fragmentation-swipeback:1.1.8'
+
 }
