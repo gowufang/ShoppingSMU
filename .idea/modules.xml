@@ -3,11 +3,17 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/ShoppingSMU.iml" filepath="$PROJECT_DIR$/ShoppingSMU.iml" />
+      <module fileurl="file://D:\0Mse1\0fromGit\ShoppingSMU\ShoppingSMU.iml" filepath="D:\0Mse1\0fromGit\ShoppingSMU\ShoppingSMU.iml" />
       <module fileurl="file://$PROJECT_DIR$/example/example.iml" filepath="$PROJECT_DIR$/example/example.iml" />
+      <module fileurl="file://D:\0Mse1\0fromGit\ShoppingSMU\example\example.iml" filepath="D:\0Mse1\0fromGit\ShoppingSMU\example\example.iml" />
       <module fileurl="file://$PROJECT_DIR$/volvane-annotations/volvane-annotations.iml" filepath="$PROJECT_DIR$/volvane-annotations/volvane-annotations.iml" />
+      <module fileurl="file://D:\0Mse1\0fromGit\ShoppingSMU\volvane-annotations\volvane-annotations.iml" filepath="D:\0Mse1\0fromGit\ShoppingSMU\volvane-annotations\volvane-annotations.iml" />
       <module fileurl="file://$PROJECT_DIR$/volvane-compiler/volvane-compiler.iml" filepath="$PROJECT_DIR$/volvane-compiler/volvane-compiler.iml" />
+      <module fileurl="file://D:\0Mse1\0fromGit\ShoppingSMU\volvane-compiler\volvane-compiler.iml" filepath="D:\0Mse1\0fromGit\ShoppingSMU\volvane-compiler\volvane-compiler.iml" />
       <module fileurl="file://$PROJECT_DIR$/volvane-core/volvane-core.iml" filepath="$PROJECT_DIR$/volvane-core/volvane-core.iml" />
+      <module fileurl="file://D:\0Mse1\0fromGit\ShoppingSMU\volvane-core\volvane-core.iml" filepath="D:\0Mse1\0fromGit\ShoppingSMU\volvane-core\volvane-core.iml" />
       <module fileurl="file://$PROJECT_DIR$/volvane-ec/volvane-ec.iml" filepath="$PROJECT_DIR$/volvane-ec/volvane-ec.iml" />
+      <module fileurl="file://D:\0Mse1\0fromGit\ShoppingSMU\volvane-ec\volvane-ec.iml" filepath="D:\0Mse1\0fromGit\ShoppingSMU\volvane-ec\volvane-ec.iml" />
     </modules>
   </component>
 </project>
