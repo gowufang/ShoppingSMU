@@ -14,7 +14,7 @@ public final class Volvane {
         getConfiguration().put(ConfigType.APPLICATION_CONTEXT.name(),context.getApplicationContext());
         return  Configurator.getInstance();
     }
-    private static WeakHashMap<String,Object> getConfiguration(){
+    public static WeakHashMap<String,Object> getConfiguration(){
         return Configurator.getInstance().getVolvaneConfigs();
     }
 
