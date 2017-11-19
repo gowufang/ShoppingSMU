@@ -10,11 +10,12 @@ import java.util.WeakHashMap;
  */
 //final is that no class could extend Volvane
 public final class Volvane {
-    public static  Configurator init(Context context){
-        getConfiguration().put(ConfigType.APPLICATION_CONTEXT.name(),context.getApplicationContext());
-        return  Configurator.getInstance();
+    public static Configurator init(Context context) {
+        getConfiguration().put(ConfigType.APPLICATION_CONTEXT.name(), context.getApplicationContext());
+        return Configurator.getInstance();
     }
-    public static WeakHashMap<String,Object> getConfiguration(){
+
+    public static WeakHashMap<String, Object> getConfiguration() {
         return Configurator.getInstance().getVolvaneConfigs();
     }
 

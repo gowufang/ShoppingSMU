@@ -15,6 +15,7 @@ public class ExampleApp extends Application {
         super.onCreate();
         Volvane.init(this)
 
-                .withApiHost("http://127.0.0.1").configure();;
+                .withApiHost("http://127.0.0.1").configure();
+        ;
     }
 }
