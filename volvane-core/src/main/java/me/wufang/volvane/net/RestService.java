@@ -21,7 +21,7 @@ import retrofit2.http.Url;
  * Created by wu on 2017/11/19.
  */
 
-//restful接口，请求
+//restful接口，用于请求
 public interface RestService {
 
     @GET
