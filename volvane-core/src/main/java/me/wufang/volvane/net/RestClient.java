@@ -1,5 +1,7 @@
 package me.wufang.volvane.net;
 
+import android.content.Context;
+
 import java.util.Map;
 import java.util.WeakHashMap;
 
@@ -8,6 +10,7 @@ import me.wufang.volvane.net.callback.IFailure;
 import me.wufang.volvane.net.callback.IRequest;
 import me.wufang.volvane.net.callback.ISuccess;
 import me.wufang.volvane.net.callback.RequestCallbacks;
+import me.wufang.volvane.ui.LoaderStyle;
 import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -26,12 +29,15 @@ public class RestClient {
     private final IFailure FAILURE;
     private final IError ERROR;
     private final RequestBody BODY;
+    private final LoaderStyle LOADER_STYLE;
+    private final Context CONTEXT;
 
 
     public RestClient(String url, Map<String,
             Object> params, IRequest request,
                       ISuccess success, IFailure failure,
-                      IError error, RequestBody body) {
+                      IError error, RequestBody body,
+                      Context context,LoaderStyle loaderStyle) {
         URL = url;
         PARAMS.putAll(params);
         REQUEST = request;
@@ -39,6 +45,8 @@ public class RestClient {
         FAILURE = failure;
         ERROR = error;
         BODY = body;
+        CONTEXT=context;
+        LOADER_STYLE=loaderStyle;
     }
 
     //创建构造者

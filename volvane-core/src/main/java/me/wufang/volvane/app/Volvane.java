@@ -2,6 +2,7 @@ package me.wufang.volvane.app;
 
 import android.content.Context;
 
+import java.util.HashMap;
 import java.util.WeakHashMap;
 
 /**
@@ -11,12 +12,23 @@ import java.util.WeakHashMap;
 //final is that no class could extend Volvane
 public final class Volvane {
     public static Configurator init(Context context) {
-        getConfiguration().put(ConfigType.APPLICATION_CONTEXT.name(), context.getApplicationContext());
+        Configurator.getInstance()
+                .getVolvaneConfigs()
+                .put(ConfigKeys.APPLICATION_CONTEXT, context.getApplicationContext());
         return Configurator.getInstance();
     }
+    public static Configurator getConfigurator() {
+        return Configurator.getInstance();
+    }
+    public static Context getApplicationContext() {
+        return getConfiguration(ConfigKeys.APPLICATION_CONTEXT);
+    }
+//    public static HashMap<Object, Object> getConfiguration() {
+//        return Configurator.getInstance().getVolvaneConfigs();
+//    }
 
-    public static WeakHashMap<String, Object> getConfiguration() {
-        return Configurator.getInstance().getVolvaneConfigs();
+    public static <T> T getConfiguration(Object key) {
+        return getConfigurator().getConfiguration(key);
     }
 
 }

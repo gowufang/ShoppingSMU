@@ -1,5 +1,7 @@
 package me.wufang.volvane.net;
 
+import android.content.Context;
+
 import java.util.Map;
 import java.util.WeakHashMap;
 
@@ -7,6 +9,7 @@ import me.wufang.volvane.net.callback.IError;
 import me.wufang.volvane.net.callback.IFailure;
 import me.wufang.volvane.net.callback.IRequest;
 import me.wufang.volvane.net.callback.ISuccess;
+import me.wufang.volvane.ui.LoaderStyle;
 import okhttp3.MediaType;
 import okhttp3.RequestBody;
 
@@ -25,6 +28,8 @@ public class RestClientBuilder {
     private IFailure mIFailure;
     private IError mIError;
     private RequestBody mBody;
+    private Context mContext;
+    private LoaderStyle mLoaderStyle;
     //不允许外部的类直接new该类
 
 
@@ -80,6 +85,6 @@ public class RestClientBuilder {
     public final RestClient build(){
         return new RestClient(mUrl,PARAMS,
                 mIRequest,mISuccess,
-                mIFailure,mIError,mBody);
+                mIFailure,mIError,mBody,mContext,mLoaderStyle);
     }
 }
