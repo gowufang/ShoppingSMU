@@ -49,4 +49,8 @@ dependencies {
     //Loader dependency
     compile 'com.wang.avi:library:2.1.3'
 
+    //icon
+    compile 'com.joanzapata.iconify:android-iconify-fontawesome:2.2.2'
+    compile 'com.joanzapata.iconify:android-iconify-ionicons:2.2.2'
+    //不想在具体的项目中引用这些所以封装下
 }

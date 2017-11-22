@@ -37,6 +37,7 @@ public class RestCreator {
     //retrofit在全局只需要一个就可以了，因此用单例模式
     private static final class RetrofitHolder {
         private static final String BASE_URL = (String) Volvane.getConfiguration().get(ConfigType.API_HOST.name());
+//private static final String BASE_URL = Volvane.getConfiguration(ConfigType.API_HOST);
 
         //Create Retrofit Client
         private static final Retrofit RETROFIT_CLENT = new Retrofit.Builder()

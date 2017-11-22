@@ -34,6 +34,7 @@ public class ExampleDelegate extends VolvaneDelegate{
         RestClient.builder()
                 .url("http://news.baidu.com/")
                // .params("","")
+                .loader(getContext())
                 .success(new ISuccess() {
                     public static final String TAG ="testRestClient" ;
 

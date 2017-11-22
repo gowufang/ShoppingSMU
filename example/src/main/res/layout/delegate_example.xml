@@ -12,4 +12,10 @@
         tools:ignore="HardcodedText" />
 
 
+    <com.joanzapata.iconify.widget.IconTextView
+        android:id="@+id/icon_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="{fa-coffee}"
+        tools:ignore="HardcodedText"/>
 </LinearLayout>

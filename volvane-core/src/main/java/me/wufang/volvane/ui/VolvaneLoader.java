@@ -24,6 +24,11 @@ public class VolvaneLoader {
 
     private static final ArrayList<AppCompatDialog> LOADERS=new ArrayList<>();
     private static final String DEFAULT_LOADER=LoaderStyle.BallClipRotatePulseIndicator.name();
+
+    public static void showLoading(Context context,Enum<LoaderStyle> type){
+        showLoading(context,type.name());
+    }
+
     public static void showLoading(Context context,String type){
         final AppCompatDialog dialog=new AppCompatDialog(context, R.style.dialog);//尽量使用V7中的compat包中的类，可以对兼容性更好
 

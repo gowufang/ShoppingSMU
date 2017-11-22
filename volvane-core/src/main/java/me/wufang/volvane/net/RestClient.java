@@ -11,6 +11,7 @@ import me.wufang.volvane.net.callback.IRequest;
 import me.wufang.volvane.net.callback.ISuccess;
 import me.wufang.volvane.net.callback.RequestCallbacks;
 import me.wufang.volvane.ui.LoaderStyle;
+import me.wufang.volvane.ui.VolvaneLoader;
 import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -33,21 +34,7 @@ public class RestClient {
     private final Context CONTEXT;
 
 
-    public RestClient(String url, Map<String,
-            Object> params, IRequest request,
-                      ISuccess success, IFailure failure,
-                      IError error, RequestBody body,
-                      Context context,LoaderStyle loaderStyle) {
-        URL = url;
-        PARAMS.putAll(params);
-        REQUEST = request;
-        SUCCESS = success;
-        FAILURE = failure;
-        ERROR = error;
-        BODY = body;
-        CONTEXT=context;
-        LOADER_STYLE=loaderStyle;
-    }
+
 
     //创建构造者
     public static RestClientBuilder builder(){
@@ -59,6 +46,9 @@ public class RestClient {
         Call<String> call=null;
         if (REQUEST!=null){
             REQUEST.onRequestStart();
+        }
+        if (LOADER_STYLE!=null){
+            VolvaneLoader.showLoading(CONTEXT,LOADER_STYLE);
         }
         switch (method){
             case GET:
@@ -80,11 +70,26 @@ public class RestClient {
             call.enqueue(getRequestCallback());
         }
     }
+    public RestClient(String url, Map<String,
+            Object> params, IRequest request,
+                      ISuccess success, IFailure failure,
+                      IError error, RequestBody body,
+                      Context context,LoaderStyle loaderStyle) {
+        URL = url;
+        PARAMS.putAll(params);
+        REQUEST = request;
+        SUCCESS = success;
+        FAILURE = failure;
+        ERROR = error;
+        BODY = body;
+        CONTEXT=context;
+        LOADER_STYLE=loaderStyle;
+    }
     private Callback<String> getRequestCallback(){
         return new RequestCallbacks(REQUEST,
                 SUCCESS,
                 FAILURE,
-                ERROR);
+                ERROR,LOADER_STYLE);
     }
     /*
     具体的使用方法

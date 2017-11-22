@@ -1,18 +1,24 @@
 package me.wufang.volvane.app;
 
+import com.joanzapata.iconify.IconFontDescriptor;
+import com.joanzapata.iconify.Iconify;
+
+import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.WeakHashMap;
 
 /**
  * Created by Administrator on 2017/11/15.
  * Email:gowufang@gmail.com
  */
 //configure some tools
-public class Configurator {//static final class have to use Upper leter
-    private static final HashMap<Object, Object> VOLVANE_CONFIGS = new HashMap<>();
+public class Configurator {
+
+    private static final HashMap<String, Object> VOLVANE_CONFIGS = new HashMap<>();
+
+    private static final ArrayList<IconFontDescriptor> ICONS = new ArrayList<>();
 
     private Configurator() {
-        VOLVANE_CONFIGS.put(ConfigKeys.CONFIG_READY, false);
+        VOLVANE_CONFIGS.put(ConfigType.CONFIG_READY.name(), false);
 
     }
 
@@ -20,11 +26,10 @@ public class Configurator {//static final class have to use Upper leter
         return Holder.INSTANCE;
     }
 
-//    final WeakHashMap<String, Object> getVolvaneConfigs() {
+    //    final WeakHashMap<String, Object> getVolvaneConfigs() {
 //        return VOLVANE_CONFIGS;
 //    }
-
-    final HashMap<Object, Object> getVolvaneConfigs() {
+    final HashMap<String, Object> getVolvaneConfigs() {
         return VOLVANE_CONFIGS;
     }
 
@@ -32,35 +37,54 @@ public class Configurator {//static final class have to use Upper leter
         private static final Configurator INSTANCE = new Configurator();
     }
 
+
     public final void configure() {
-        VOLVANE_CONFIGS.put(ConfigKeys.CONFIG_READY, true);
+
+        initIcons();
+        VOLVANE_CONFIGS.put(ConfigType.CONFIG_READY.name(), true);
     }
 
     public final Configurator withApiHost(String host) {
-        VOLVANE_CONFIGS.put(ConfigKeys.API_HOST, host);
+        VOLVANE_CONFIGS.put(ConfigType.API_HOST.name(), host);
+        return this;
+    }
+
+    private void initIcons() {
+        if (ICONS.size() > 0) {
+            final Iconify.IconifyInitializer initializer = Iconify.with(ICONS.get(0));
+            //从1 开始，因为0已经被加入过了
+            for (int i = 1; i < ICONS.size(); i++) {
+                initializer.with(ICONS.get(i));
+            }
+        }
+    }
+
+    public final Configurator withIcon(IconFontDescriptor descriptor) {
+        ICONS.add(descriptor);
         return this;
     }
 
     private void checkConfiguration() {
         final boolean isReady = (boolean) VOLVANE_CONFIGS.get(ConfigType.CONFIG_READY.name());
         if (!isReady) {
-            throw new RuntimeException("configuration is not ready,call config ");
+            throw new RuntimeException("Configuration is not ready,call configure");
         }
     }
 
-//    @SuppressWarnings("unchecked")
+    //    @SuppressWarnings("unchecked")
 //    final <T> T getConfiguration(Enum<ConfigType> key) {
 //        checkConfiguration();
 //        return (T) VOLVANE_CONFIGS.get(key.name());
 //
 //    }
-@SuppressWarnings("unchecked")
-final <T> T getConfiguration(Object key) {
-    checkConfiguration();
-    final Object value = VOLVANE_CONFIGS.get(key);
-    if (value == null) {
-        throw new NullPointerException(key.toString() + " IS NULL");
+    @SuppressWarnings("unchecked")
+    final <T> T getConfiguration(Object key) {
+        checkConfiguration();
+        final Object value = VOLVANE_CONFIGS.get(key);
+        if (value == null) {
+            throw new NullPointerException(key.toString() + " IS NULL");
+        }
+        return (T) VOLVANE_CONFIGS.get(key);
     }
-    return (T) VOLVANE_CONFIGS.get(key);
-}
+
 }
