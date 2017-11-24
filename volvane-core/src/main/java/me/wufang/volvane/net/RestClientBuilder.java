@@ -2,6 +2,7 @@ package me.wufang.volvane.net;
 
 import android.content.Context;
 
+import java.io.File;
 import java.util.Map;
 import java.util.WeakHashMap;
 
@@ -32,6 +33,7 @@ public class RestClientBuilder {
     private LoaderStyle mLoaderStyle;
     //不允许外部的类直接new该类
 
+    private File mFile=null;
 
 
     RestClientBuilder() {
@@ -51,6 +53,18 @@ public class RestClientBuilder {
         PARAMS.put(key,value);
         return this;
     }
+
+    public final RestClientBuilder file(File file){
+        this.mFile=file;
+        return this;
+    }
+
+    public final RestClientBuilder file(String file){
+
+        this.mFile=new File(file);
+        return this;
+    }
+
 
     public final RestClientBuilder raw(String raw){
         //一般传入的是json数据
@@ -98,6 +112,6 @@ public class RestClientBuilder {
     public final RestClient build(){
         return new RestClient(mUrl,PARAMS,
                 mIRequest,mISuccess,
-                mIFailure,mIError,mBody,mContext,mLoaderStyle);
+                mIFailure,mIError,mBody,mContext,mLoaderStyle, mFile);
     }
 }
