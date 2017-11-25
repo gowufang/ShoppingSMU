@@ -46,7 +46,7 @@ public interface RestService {
     @DELETE
     Call<String> delete(@Url String url, @FieldMap Map<String, Object> params);
 
-    @Streaming
+    @Streaming//一边下载一边写入到文件，必须使用异步的方法，如果不用stram，则全部下载到内存，可能会出现内存溢出
     @GET
     Call<ResponseBody> download(@Url String url, @QueryMap Map<String, Object> params);
 

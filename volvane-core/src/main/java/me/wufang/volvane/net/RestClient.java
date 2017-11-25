@@ -6,6 +6,7 @@ import java.io.File;
 import java.util.Map;
 import java.util.WeakHashMap;
 
+import me.wufang.volvane.download.DownloadHandler;
 import me.wufang.volvane.net.callback.IError;
 import me.wufang.volvane.net.callback.IFailure;
 import me.wufang.volvane.net.callback.IRequest;
@@ -29,6 +30,10 @@ public class RestClient {
     private static final WeakHashMap<String, Object> PARAMS=RestCreator.getParams();
 
     private final IRequest REQUEST;
+
+    private final String DOWNLOAD_DIR;//路径
+    private final String EXTENSION;//下载的后缀（格式）
+    private final String NAME;//下载的文件名
     private final ISuccess SUCCESS;
     private final IFailure FAILURE;
     private final IError ERROR;
@@ -88,10 +93,13 @@ public class RestClient {
     }
     public RestClient(String url, Map<String,
             Object> params, IRequest request,
-                      ISuccess success, IFailure failure,
+                      String download_dir, String extension, String name, ISuccess success, IFailure failure,
                       IError error, RequestBody body,
                       Context context, LoaderStyle loaderStyle, File file) {
         URL = url;
+        DOWNLOAD_DIR = download_dir;
+        EXTENSION = extension;
+        NAME = name;
         FILE = file;
         PARAMS.putAll(params);
         REQUEST = request;
@@ -139,5 +147,12 @@ public class RestClient {
     public final void delete(){
         request(HttpMethod.DELETE);
     }
+    public final void upload(){
+        request(HttpMethod.UPLOAD);
+    }
 
+    public void download(){
+
+        new DownloadHandler(URL,REQUEST,DOWNLOAD_DIR,EXTENSION,NAME,SUCCESS,FAILURE,ERROR).handleDownload();
+    }
 }

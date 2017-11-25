@@ -20,24 +20,32 @@ import okhttp3.RequestBody;
 
 //建造者模式，所以属性不能是final
 public class RestClientBuilder {
-    private String mUrl;
+    private String mUrl=null;
     //从creator中获取
     private static final Map<String, Object> PARAMS=RestCreator.getParams();
 
-    private IRequest mIRequest;
-    private ISuccess mISuccess;
-    private IFailure mIFailure;
-    private IError mIError;
-    private RequestBody mBody;
-    private Context mContext;
-    private LoaderStyle mLoaderStyle;
+    private IRequest mIRequest=null;
+    private ISuccess mISuccess=null;
+    private IFailure mIFailure=null;
+    private IError mIError=null;
+    private RequestBody mBody=null;
+    private Context mContext=null;
+    private LoaderStyle mLoaderStyle=null;
     //不允许外部的类直接new该类
 
     private File mFile=null;
+    private String mDownloadDir=null;
+    private String mExtension=null;
+    private String mName=null;
+
 
 
     RestClientBuilder() {
     }
+
+
+
+
     public final RestClientBuilder url(String url){
         this.mUrl=url;
         return this;
@@ -64,7 +72,23 @@ public class RestClientBuilder {
         this.mFile=new File(file);
         return this;
     }
+    public final RestClientBuilder dir(String dir){
 
+
+        this.mDownloadDir=dir;
+        return this;
+    }
+    public final RestClientBuilder extension(String extension){
+
+        this.mExtension=extension;
+        return this;
+    }
+    public final RestClientBuilder name(String name){
+
+
+        this.mName=name;
+        return this;
+    }
 
     public final RestClientBuilder raw(String raw){
         //一般传入的是json数据
@@ -109,9 +133,11 @@ public class RestClientBuilder {
     }
 
 
+
+
     public final RestClient build(){
         return new RestClient(mUrl,PARAMS,
-                mIRequest,mISuccess,
+                mIRequest, mDownloadDir, mExtension, mName, mISuccess,
                 mIFailure,mIError,mBody,mContext,mLoaderStyle, mFile);
     }
 }
