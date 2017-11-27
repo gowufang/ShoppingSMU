@@ -43,7 +43,8 @@ public class RestClient {
 
     private final File FILE;
 
-
+/*用拦截器模拟rest请求，当请求url的时候通过拦截器返回一个json数据，达到response目的
+* */
 
     //创建构造者
     public static RestClientBuilder builder(){

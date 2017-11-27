@@ -5,9 +5,11 @@ package me.wufang.volvane.app;
  * Email:gowufang@gmail.com
  */
 //enum 是 单例，只能被初始化一次，进行惰性单例初始化
-public enum ConfigType {
+public enum ConfigKeys {
     API_HOST,//请求域名
     APPLICATION_CONTEXT,//全局初始化
     CONFIG_READY,//chushihua shifou wancheng
-    ICON
+    ICON,
+    LOAD_DELAYED,
+    INTERCEPTOR
 }

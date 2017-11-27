@@ -3,7 +3,6 @@ package me.wufang.volvane.app;
 import android.content.Context;
 
 import java.util.HashMap;
-import java.util.WeakHashMap;
 
 /**
  * Created by Administrator on 2017/11/15.
@@ -14,7 +13,7 @@ public final class Volvane {
     public static Configurator init(Context context) {
         Configurator.getInstance()
                 .getVolvaneConfigs()
-                .put(ConfigType.APPLICATION_CONTEXT.name(), context.getApplicationContext());
+                .put(ConfigKeys.APPLICATION_CONTEXT.name(), context.getApplicationContext());
         return Configurator.getInstance();
     }
 
@@ -45,13 +44,13 @@ public final class Volvane {
          at me.wufang.volvane.app.Volvane.getConfiguration(Volvane.java:34)
          at me.wufang.volvane.app.Volvane.getApplicationContext(Volvane.java:27)*/
 
-        return getConfiguration(ConfigType.APPLICATION_CONTEXT.name());
+        return getConfiguration(ConfigKeys.APPLICATION_CONTEXT.name());
     }
     public static Context getApplication(){
-        return (Context) getConfiguration().get(ConfigType.APPLICATION_CONTEXT.name());
+        return (Context) getConfiguration().get(ConfigKeys.APPLICATION_CONTEXT.name());
     }
 
-    public static HashMap<String, Object> getConfiguration() {
+    public static HashMap<Object, Object> getConfiguration() {
         return Configurator.getInstance().getVolvaneConfigs();
     }
 

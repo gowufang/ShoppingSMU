@@ -6,6 +6,8 @@ import com.joanzapata.iconify.Iconify;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import okhttp3.Interceptor;
+
 /**
  * Created by Administrator on 2017/11/15.
  * Email:gowufang@gmail.com
@@ -13,12 +15,15 @@ import java.util.HashMap;
 //configure some tools
 public class Configurator {
 
-    private static final HashMap<String, Object> VOLVANE_CONFIGS = new HashMap<>();
+    private static final HashMap<Object, Object> VOLVANE_CONFIGS = new HashMap<>();
 
     private static final ArrayList<IconFontDescriptor> ICONS = new ArrayList<>();
 
+    //拦截器是一种强大的机制,可以监视、重写和重试调用.下面是一个简单例子,拦截发出的请求和传入的响应的日志.
+    private static final ArrayList<Interceptor> INTERCEPTORS = new ArrayList<>();
+
     private Configurator() {
-        VOLVANE_CONFIGS.put(ConfigType.CONFIG_READY.name(), false);
+        VOLVANE_CONFIGS.put(ConfigKeys.CONFIG_READY.name(), false);
 
     }
 
@@ -29,7 +34,7 @@ public class Configurator {
     //    final WeakHashMap<String, Object> getVolvaneConfigs() {
 //        return VOLVANE_CONFIGS;
 //    }
-    final HashMap<String, Object> getVolvaneConfigs() {
+    final HashMap<Object, Object> getVolvaneConfigs() {
         return VOLVANE_CONFIGS;
     }
 
@@ -41,11 +46,11 @@ public class Configurator {
     public final void configure() {
 
         initIcons();
-        VOLVANE_CONFIGS.put(ConfigType.CONFIG_READY.name(), true);
+        VOLVANE_CONFIGS.put(ConfigKeys.CONFIG_READY.name(), true);
     }
 
     public final Configurator withApiHost(String host) {
-        VOLVANE_CONFIGS.put(ConfigType.API_HOST.name(), host);
+        VOLVANE_CONFIGS.put(ConfigKeys.API_HOST.name(), host);
         return this;
     }
 
@@ -64,15 +69,28 @@ public class Configurator {
         return this;
     }
 
+    public final Configurator withInterceptor(Interceptor interceptor) {
+        INTERCEPTORS.add(interceptor);
+        VOLVANE_CONFIGS.put(ConfigKeys.INTERCEPTOR, INTERCEPTORS);
+        return this;
+    }
+
+
+    public final Configurator withInterceptors(ArrayList<Interceptor> interceptors) {
+        INTERCEPTORS.addAll(interceptors);
+        VOLVANE_CONFIGS.put(ConfigKeys.INTERCEPTOR, INTERCEPTORS);
+        return this;
+    }
+
     private void checkConfiguration() {
-        final boolean isReady = (boolean) VOLVANE_CONFIGS.get(ConfigType.CONFIG_READY.name());
+        final boolean isReady = (boolean) VOLVANE_CONFIGS.get(ConfigKeys.CONFIG_READY.name());
         if (!isReady) {
             throw new RuntimeException("Configuration is not ready,call configure");
         }
     }
 
     //    @SuppressWarnings("unchecked")
-//    final <T> T getConfiguration(Enum<ConfigType> key) {
+//    final <T> T getConfiguration(Enum<ConfigKeys> key) {
 //        checkConfiguration();
 //        return (T) VOLVANE_CONFIGS.get(key.name());
 //

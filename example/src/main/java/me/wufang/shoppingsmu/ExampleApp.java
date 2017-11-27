@@ -19,6 +19,7 @@ public class ExampleApp extends Application {
         Volvane.init(this)
                 .withIcon(new FontAwesomeModule())
                 .withIcon(new FontEcModule())
+                .withInterceptor()
                 .withApiHost("http://127.0.0.1")
                 .configure();
         ;
