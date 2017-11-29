@@ -1,4 +1,4 @@
-package me.wufang.volvane.download;
+package me.wufang.volvane.net.download;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -11,7 +11,6 @@ import me.wufang.volvane.app.Volvane;
 import me.wufang.volvane.net.callback.IRequest;
 import me.wufang.volvane.net.callback.ISuccess;
 import me.wufang.volvane.util.file.FileUtil;
-import okhttp3.RequestBody;
 import okhttp3.ResponseBody;
 
 /**

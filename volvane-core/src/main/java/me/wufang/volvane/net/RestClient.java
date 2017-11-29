@@ -6,7 +6,7 @@ import java.io.File;
 import java.util.Map;
 import java.util.WeakHashMap;
 
-import me.wufang.volvane.download.DownloadHandler;
+import me.wufang.volvane.net.download.DownloadHandler;
 import me.wufang.volvane.net.callback.IError;
 import me.wufang.volvane.net.callback.IFailure;
 import me.wufang.volvane.net.callback.IRequest;

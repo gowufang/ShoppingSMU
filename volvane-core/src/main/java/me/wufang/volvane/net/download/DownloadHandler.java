@@ -1,4 +1,4 @@
-package me.wufang.volvane.download;
+package me.wufang.volvane.net.download;
 
 import android.os.AsyncTask;
 
@@ -9,7 +9,6 @@ import me.wufang.volvane.net.callback.IError;
 import me.wufang.volvane.net.callback.IFailure;
 import me.wufang.volvane.net.callback.IRequest;
 import me.wufang.volvane.net.callback.ISuccess;
-import me.wufang.volvane.util.file.FileUtil;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
