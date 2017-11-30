@@ -6,6 +6,7 @@ import com.joanzapata.iconify.fonts.FontAwesomeModule;
 
 import me.wufang.volvane.app.Volvane;
 import me.wufang.volvane.ec.icon.FontEcModule;
+import me.wufang.volvane.net.interceptors.DebugInterceptor;
 
 /**
  * Created by Administrator on 2017/11/15.
@@ -19,7 +20,7 @@ public class ExampleApp extends Application {
         Volvane.init(this)
                 .withIcon(new FontAwesomeModule())
                 .withIcon(new FontEcModule())
-                .withInterceptor()
+                .withInterceptor(new DebugInterceptor("index",R.raw.test))
                 .withApiHost("http://127.0.0.1")
                 .configure();
         ;

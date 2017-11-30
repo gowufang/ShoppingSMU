@@ -32,7 +32,7 @@ public class ExampleDelegate extends VolvaneDelegate{
 
     private void testRestClient(){
         RestClient.builder()
-                .url("http://news.baidu.com/")
+                .url("http://127.0.0.1/index")
                // .params("","")
                 .loader(getContext())
                 .success(new ISuccess() {
@@ -41,7 +41,9 @@ public class ExampleDelegate extends VolvaneDelegate{
                     @Override
                     public void onSuccess(String response) {
 
+
                         Log.d(TAG, "onSuccess: "+response);
+                        Log.d("HHHHHHH", "onSuccess: "+response);
                         Toast.makeText(getContext(),response,Toast.LENGTH_LONG).show();
                     }
                 })
