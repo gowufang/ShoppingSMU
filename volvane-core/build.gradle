@@ -53,4 +53,12 @@ dependencies {
     compile 'com.joanzapata.iconify:android-iconify-fontawesome:2.2.2'
     compile 'com.joanzapata.iconify:android-iconify-ionicons:2.2.2'
     //不想在具体的项目中引用这些所以封装下
+
+
+    //Rxjava
+    compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
+// Because RxAndroid releases are few and far between, it is recommended you also
+// explicitly depend on RxJava's latest version for bug fixes and new features.
+    compile 'io.reactivex.rxjava2:rxjava:2.1.7'
+    compile 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
 }
