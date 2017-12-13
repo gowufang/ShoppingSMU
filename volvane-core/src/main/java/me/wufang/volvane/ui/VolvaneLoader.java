@@ -11,7 +11,7 @@ import com.wang.avi.AVLoadingIndicatorView;
 import java.util.ArrayList;
 
 import me.wufang.volvane.R;
-import me.wufang.volvane.util.DimenUtil;
+import me.wufang.volvane.util.dimen.DimenUtil;
 
 /**
  * Created by wu on 2017/11/21.

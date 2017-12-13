@@ -1,4 +1,4 @@
-package me.wufang.volvane.util;
+package me.wufang.volvane.util.dimen;
 
 import android.content.res.Resources;
 import android.util.DisplayMetrics;
