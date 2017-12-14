@@ -14,6 +14,8 @@ import butterknife.OnClick;
 import me.wufang.volvane.ec.R2;
 import me.wufang.volvane.delegates.VolvaneDelegate;
 import me.wufang.volvane.ec.R;
+import me.wufang.volvane.ui.launcher.ScrollLauncherTag;
+import me.wufang.volvane.util.storage.VolvanePreference;
 import me.wufang.volvane.util.timer.BaseTimerTask;
 import me.wufang.volvane.util.timer.ITimerListener;
 
@@ -33,7 +35,11 @@ public class LauncherDelegate extends VolvaneDelegate implements ITimerListener 
     private int mCount=5;
     @OnClick(R2.id.tv_launcher_timer)
     void onClickTimerView() {
-
+        if (mTimer != null) {
+            mTimer.cancel();
+            mTimer = null;
+            checkIsShowScroll();
+        }
     }
 
     private void initTimer(){
@@ -53,6 +59,15 @@ public class LauncherDelegate extends VolvaneDelegate implements ITimerListener 
         initTimer();//init这个timer，否则不显示
     }
 
+    //如果不是第一次则
+    //判断是否显示滑动启动页
+    private void checkIsShowScroll(){
+        if (!VolvanePreference.getAppFlag(ScrollLauncherTag.HAS_FIRST_LAUNCHER_APP.name())){
+            start(new LauncherScrollDelegate(),SINGLETASK);///diyici,则使用轮播图
+        }else{
+            //jianchayonghu shifou denglu
+        }
+    }
     @Override
     public void onTimer() {
 
@@ -62,9 +77,12 @@ public class LauncherDelegate extends VolvaneDelegate implements ITimerListener 
                 if (mtvTimer!=null){
                     mtvTimer.setText(MessageFormat.format("skip\n{0}s",mCount));
                     mCount--;
-                    if (mCount<0){
-                        mTimer.cancel();
-                        mTimer=null;
+                    if (mCount<0) {
+                        if (mTimer != null) {
+                            mTimer.cancel();
+                            mTimer = null;
+                            checkIsShowScroll();
+                        }
                     }
                 }
             }
