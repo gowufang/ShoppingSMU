@@ -1,4 +1,4 @@
-package me.wufang.volvane.ui;
+package me.wufang.volvane.ui.loader;
 /**
  * Created by wu on 2017/11/21.
  * Email:gowufang@gmail.com

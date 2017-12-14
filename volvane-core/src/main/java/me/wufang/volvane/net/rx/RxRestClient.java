@@ -8,23 +8,13 @@ import java.util.WeakHashMap;
 
 import io.reactivex.Observable;
 import me.wufang.volvane.net.HttpMethod;
-import me.wufang.volvane.net.RestClientBuilder;
 import me.wufang.volvane.net.RestCreator;
-import me.wufang.volvane.net.RestService;
-import me.wufang.volvane.net.callback.IError;
-import me.wufang.volvane.net.callback.IFailure;
-import me.wufang.volvane.net.callback.IRequest;
-import me.wufang.volvane.net.callback.ISuccess;
-import me.wufang.volvane.net.callback.RequestCallbacks;
-import me.wufang.volvane.net.download.DownloadHandler;
-import me.wufang.volvane.ui.LoaderStyle;
-import me.wufang.volvane.ui.VolvaneLoader;
+import me.wufang.volvane.ui.loader.LoaderStyle;
+import me.wufang.volvane.ui.loader.VolvaneLoader;
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 import okhttp3.ResponseBody;
-import retrofit2.Call;
-import retrofit2.Callback;
 
 /**
  * Created by wu on 2017/11/19.

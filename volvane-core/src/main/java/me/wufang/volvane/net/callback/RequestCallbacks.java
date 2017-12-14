@@ -2,12 +2,11 @@ package me.wufang.volvane.net.callback;
 
 import android.os.Handler;
 
-import me.wufang.volvane.ui.LoaderStyle;
-import me.wufang.volvane.ui.VolvaneLoader;
+import me.wufang.volvane.ui.loader.LoaderStyle;
+import me.wufang.volvane.ui.loader.VolvaneLoader;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.http.PUT;
 
 /**
  * Created by wu on 2017/11/20.

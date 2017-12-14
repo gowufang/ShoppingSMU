@@ -1,4 +1,4 @@
-package me.wufang.volvane.ui;
+package me.wufang.volvane.ui.loader;
 
 import android.content.Context;
 

@@ -6,13 +6,8 @@ import java.io.File;
 import java.util.Map;
 import java.util.WeakHashMap;
 
-import me.wufang.volvane.net.RestClient;
 import me.wufang.volvane.net.RestCreator;
-import me.wufang.volvane.net.callback.IError;
-import me.wufang.volvane.net.callback.IFailure;
-import me.wufang.volvane.net.callback.IRequest;
-import me.wufang.volvane.net.callback.ISuccess;
-import me.wufang.volvane.ui.LoaderStyle;
+import me.wufang.volvane.ui.loader.LoaderStyle;
 import okhttp3.MediaType;
 import okhttp3.RequestBody;
 
