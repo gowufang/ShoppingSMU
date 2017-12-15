@@ -40,8 +40,11 @@ dependencies {
     /*https://github.com/YoKeyword/Fragmentation*/
     compile 'me.yokeyword:fragmentation:1.1.8'
     compile 'me.yokeyword:fragmentation-swipeback:1.1.8'
-
-
+    //数据库依赖
+    compile 'org.greenrobot:greendao-generator:3.2.2'
+    compile 'org.greenrobot:greendao:3.2.2'
+    //Log
+    compile 'com.orhanobut:logger:2.1.1'
     /*https://github.com/JakeWharton/butterknife*/
     compile 'com.jakewharton:butterknife:8.8.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'

@@ -30,7 +30,6 @@ public class MainActivity extends ProxyActivity{
         ;//这个Context是ExampleApp中init的this，也就是传入到了配置文件的hashmap里面了
         Toast.makeText(Volvane.getApplication(),"get Context",Toast.LENGTH_LONG).show();
 //        return new LauncherDelegate();
-
         return new SignUpDelegate();
 
 

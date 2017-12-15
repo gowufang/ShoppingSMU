@@ -5,6 +5,7 @@ import android.app.Application;
 import com.joanzapata.iconify.fonts.FontAwesomeModule;
 
 import me.wufang.volvane.app.Volvane;
+import me.wufang.volvane.ec.database.DatabaseManager;
 import me.wufang.volvane.ec.icon.FontEcModule;
 import me.wufang.volvane.net.interceptors.DebugInterceptor;
 
@@ -23,6 +24,7 @@ public class ExampleApp extends Application {
                 .withInterceptor(new DebugInterceptor("index",R.raw.test))
                 .withApiHost("http://127.0.0.1")
                 .configure();
-        ;
+
+        DatabaseManager.getInstance().init(this);
     }
 }
