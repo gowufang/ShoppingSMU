@@ -11,6 +11,7 @@ import me.wufang.volvane.app.Volvane;
 import me.wufang.volvane.delegates.VolvaneDelegate;
 import me.wufang.volvane.ec.launcher.LauncherDelegate;
 import me.wufang.volvane.ec.launcher.LauncherScrollDelegate;
+import me.wufang.volvane.ec.sign.SignUpDelegate;
 
 public class MainActivity extends ProxyActivity{
 
@@ -28,8 +29,9 @@ public class MainActivity extends ProxyActivity{
 
         ;//这个Context是ExampleApp中init的this，也就是传入到了配置文件的hashmap里面了
         Toast.makeText(Volvane.getApplication(),"get Context",Toast.LENGTH_LONG).show();
-        return new LauncherDelegate();
+//        return new LauncherDelegate();
 
+        return new SignUpDelegate();
 
 
 
