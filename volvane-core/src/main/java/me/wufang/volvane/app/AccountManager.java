@@ -14,9 +14,10 @@ public class AccountManager {
     }
 
     //保存用户登陆状态，登陆后调用
-    public static void getSignState(boolean state){
+    public static void setSignState(boolean state){
         VolvanePreference.setAppFlag(SignTag.SIGN_TAG.name(),state);
     }
+
 
     private static boolean isSignIn(){
         return VolvanePreference.getAppFlag(SignTag.SIGN_TAG.name());//tagname ?

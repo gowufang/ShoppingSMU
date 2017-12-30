@@ -61,13 +61,13 @@ public class SignUpDelegate extends VolvaneDelegate {
                         @Override
                         public void onSuccess(String response) {
                             LatteLogger.json("USER_PROFILE", response);
-                            SignHandler.onSignUp(response);
+                            SignHandler.onSignUp(response,mISignListener);
 
                         }
                     })
                     .build()
                     .post();
-            Toast.makeText(getContext(), "验证成功", Toast.LENGTH_SHORT).show();
+           // Toast.makeText(getContext(), "验证成功", Toast.LENGTH_SHORT).show();
 
         }
     }

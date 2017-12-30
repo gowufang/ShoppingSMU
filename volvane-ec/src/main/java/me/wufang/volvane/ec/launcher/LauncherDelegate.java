@@ -1,5 +1,6 @@
 package me.wufang.volvane.ec.launcher;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.AppCompatTextView;
@@ -11,9 +12,13 @@ import java.util.Timer;
 import butterknife.BindView;
 
 import butterknife.OnClick;
+import me.wufang.volvane.app.AccountManager;
+import me.wufang.volvane.app.IUserChecker;
 import me.wufang.volvane.ec.R2;
 import me.wufang.volvane.delegates.VolvaneDelegate;
 import me.wufang.volvane.ec.R;
+import me.wufang.volvane.ui.launcher.ILauncherListener;
+import me.wufang.volvane.ui.launcher.OnLauncherFinishTag;
 import me.wufang.volvane.ui.launcher.ScrollLauncherTag;
 import me.wufang.volvane.util.storage.VolvanePreference;
 import me.wufang.volvane.util.timer.BaseTimerTask;
@@ -32,7 +37,9 @@ public class LauncherDelegate extends VolvaneDelegate implements ITimerListener 
 
     private Timer mTimer = null;
 
+
     private int mCount=5;
+    private ILauncherListener mILauncherListener=null;
     @OnClick(R2.id.tv_launcher_timer)
     void onClickTimerView() {
         if (mTimer != null) {
@@ -48,6 +55,17 @@ public class LauncherDelegate extends VolvaneDelegate implements ITimerListener 
         mTimer.schedule(task,0,1000);
 
     }
+
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        if (activity instanceof ILauncherListener){
+
+            mILauncherListener= (ILauncherListener) activity;
+        }
+
+    }
+
     @Override
     public Object setLayout() {
         return R.layout.delegate_launcher;
@@ -66,6 +84,22 @@ public class LauncherDelegate extends VolvaneDelegate implements ITimerListener 
             start(new LauncherScrollDelegate(),SINGLETASK);///diyici,则使用轮播图
         }else{
             //jianchayonghu shifou denglu
+            AccountManager.checkAccount(new IUserChecker() {
+                @Override
+                public void onSignIn() {//如果有用户信息则执行有用户信息的操作
+                    if (mILauncherListener!=null){
+                        mILauncherListener.onLauncherFinish(OnLauncherFinishTag.SIGINED);
+                    }
+                }
+
+                @Override
+                public void onNotSignIn() {
+                   if (mILauncherListener!=null){
+                       mILauncherListener.onLauncherFinish(OnLauncherFinishTag.NOT_SIGNED);
+                   }
+
+                }
+            });
         }
     }
     @Override
