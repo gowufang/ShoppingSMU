@@ -12,6 +12,6 @@ import android.content.Intent;
 public class AppRegisterTemplate extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
-        
+
     }
 }
