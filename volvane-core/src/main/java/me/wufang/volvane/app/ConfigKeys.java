@@ -11,5 +11,8 @@ public enum ConfigKeys {
     CONFIG_READY,//chushihua shifou wancheng
     ICON,
     LOAD_DELAYED,
-    INTERCEPTOR
+    INTERCEPTOR,
+    WE_CHAT_APP_ID,
+    WE_CHAT_APP_SECRET,
+    ACTIVITY
 }

@@ -26,6 +26,7 @@ public class MainActivity extends ProxyActivity implements ISignListener, ILaunc
         if (actionBar != null) {
             actionBar.hide();
         }
+        Volvane.getConfigurator().withActivity(this);
     }
 
     @Override

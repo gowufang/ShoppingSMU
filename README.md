@@ -1,5 +1,6 @@
 # ShoppingSMU
-annotations和compiler中是用来接入微信的。
+annotations和compiler中这两个model是用来接入微信的。绕过微信的限制
+
 compiler中的代码是仿照Butterknife的，直接cp过来的。
 
 ```
