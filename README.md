@@ -28,5 +28,18 @@ compiler modle中还用到
  compile 'com.google.auto:auto-common:0.8'
 ```
 
+RestClient是自定义的一个网络框架
 
 VolvaneWechat中完成调用微信接口的方法
+
+//透明activity
+   ```
+ <style name="Theme.AppCompat.Translucent">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation</item>
+
+    </style>
+```
