@@ -27,3 +27,6 @@ compiler modle中还用到
  compile 'com.google.auto.service:auto-service:1.0-rc3'
  compile 'com.google.auto:auto-common:0.8'
 ```
+
+
+VolvaneWechat中完成调用微信接口的方法
