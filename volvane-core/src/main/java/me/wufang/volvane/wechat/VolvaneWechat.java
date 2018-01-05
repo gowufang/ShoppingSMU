@@ -15,8 +15,8 @@ import me.wufang.volvane.app.Volvane;
  */
 
 public class VolvaneWechat {
-    static final String APP_ID = Volvane.getConfiguration(ConfigKeys.WE_CHAT_APP_ID);
-    static final String APP_SECRET = Volvane.getConfiguration(ConfigKeys.WE_CHAT_APP_SECRET);
+    public static final String APP_ID = Volvane.getConfiguration(ConfigKeys.WE_CHAT_APP_ID);
+    public static final String APP_SECRET = Volvane.getConfiguration(ConfigKeys.WE_CHAT_APP_SECRET);
     private final IWXAPI WXAPI;
 
     private static final class Holder {
