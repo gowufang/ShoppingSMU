@@ -6,5 +6,5 @@ package me.wufang.volvane.wechat.callbacks;
  */
 
 public interface IWeChatSignInCallback {
-    void onSignInSuccess();
+    void onSignInSuccess(String userInfo);
 }

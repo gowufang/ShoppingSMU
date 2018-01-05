@@ -12,12 +12,15 @@ import android.widget.Toast;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+import me.wufang.volvane.app.Volvane;
 import me.wufang.volvane.delegates.VolvaneDelegate;
 import me.wufang.volvane.ec.R;
 import me.wufang.volvane.ec.R2;
 import me.wufang.volvane.net.RestClient;
 import me.wufang.volvane.net.callback.ISuccess;
 import me.wufang.volvane.util.log.LatteLogger;
+import me.wufang.volvane.wechat.VolvaneWechat;
+import me.wufang.volvane.wechat.callbacks.IWeChatSignInCallback;
 
 /**
  * Created by wu on 2017/12/15.
@@ -66,6 +69,12 @@ public class SignInDelegate extends VolvaneDelegate {
     @OnClick(R2.id.icon_sign_in_wechat)
     void onClickWechat(){
 
+        VolvaneWechat.getInstance().onSignSuccess(new IWeChatSignInCallback() {
+            @Override
+            public void onSignInSuccess(String userInfo) {
+
+            }
+        }).signIn();
     }
 
     @OnClick(R2.id.tv_link_sign_up)

@@ -3,6 +3,7 @@ package me.wufang.volvane.wechat.templates;
 import me.wufang.volvane.activities.ProxyActivity;
 import me.wufang.volvane.delegates.VolvaneDelegate;
 import me.wufang.volvane.wechat.BaseWXEntryActivity;
+import me.wufang.volvane.wechat.VolvaneWechat;
 
 /**
  * Created by wu on 2018/1/3.
@@ -22,5 +23,6 @@ public class WXEntryTemplate extends BaseWXEntryActivity {
     @Override
     protected void onSignInSuccess(String userInfo) {
 
+        VolvaneWechat.getInstance().getSignInCallback().onSignInSuccess(userInfo);
     }
 }

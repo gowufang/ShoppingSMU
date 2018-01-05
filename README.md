@@ -43,3 +43,12 @@ VolvaneWechat中完成调用微信接口的方法
 
     </style>
 ```
+
+```
+  WXAPI.sendReq(req);//微信api接口发送登陆请求
+```
+
+# 推荐工具
+手机的显示屏在电脑上同步显示：https://www.airdroid.com/zh-cn/
+
+[HandShaker - Manage Your Android Phones at Ease](https://itunes.apple.com/us/app/handshaker-manage-your-android-phones-at-ease/id1012930195?mt=12)
