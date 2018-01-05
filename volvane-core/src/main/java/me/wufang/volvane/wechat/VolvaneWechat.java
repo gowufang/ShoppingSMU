@@ -8,6 +8,7 @@ import com.tencent.mm.opensdk.openapi.WXAPIFactory;
 
 import me.wufang.volvane.app.ConfigKeys;
 import me.wufang.volvane.app.Volvane;
+import me.wufang.volvane.wechat.callbacks.IWeChatSignInCallback;
 
 /**
  * Created by wu on 2018/1/5.
@@ -19,6 +20,7 @@ public class VolvaneWechat {
     public static final String APP_SECRET = Volvane.getConfiguration(ConfigKeys.WE_CHAT_APP_SECRET);
     private final IWXAPI WXAPI;
 
+    private IWeChatSignInCallback mSignInCallback=null;
     private static final class Holder {
         private static final VolvaneWechat INSTANCE = new VolvaneWechat();
 
@@ -37,7 +39,14 @@ public class VolvaneWechat {
     public final IWXAPI getWXAPI() {
         return WXAPI;
     }
+    public VolvaneWechat onSignSuccess(IWeChatSignInCallback callback) {
+        this.mSignInCallback = callback;
+        return this;
+    }
 
+    public IWeChatSignInCallback getSignInCallback() {
+        return mSignInCallback;
+    }
     public final void signIn(){
         final SendAuth.Req req=new SendAuth.Req();
         req.scope="snsapi_userinfo";
