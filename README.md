@@ -48,6 +48,17 @@ VolvaneWechat中完成调用微信接口的方法
   WXAPI.sendReq(req);//微信api接口发送登陆请求
 ```
 
+底部状态栏
+首先需要bean 来存储每个tab的信息，然后需要基类来实现每个tab的功能
+
+_mActivity是Fragmentation里的，是宿主activity
+https://github.com/YoKeyword/Fragmentation
+```
+compile 'me.yokeyword:fragmentation:1.1.8'
+compile 'me.yokeyword:fragmentation-swipeback:1.1.8'
+
+```
+
 # 推荐工具
 手机的显示屏在电脑上同步显示：https://www.airdroid.com/zh-cn/
 
