@@ -9,7 +9,7 @@ compile 'com.squareup:javapoet:1.9.0'
 很多跟代码生成的都用到它。
 
 
-javapoet简介
+# javapoet简介
 
 正如其名，poet指诗人，也就是作诗的人。java poet指的是能够自动写java源代码的人。是不是感觉很有意思？
 
@@ -32,7 +32,7 @@ RestClient是自定义的一个网络框架
 
 VolvaneWechat中完成调用微信接口的方法
 
-//透明activity
+#透明activity
    ```
  <style name="Theme.AppCompat.Translucent">
         <item name="android:windowNoTitle">true</item>
@@ -48,7 +48,7 @@ VolvaneWechat中完成调用微信接口的方法
   WXAPI.sendReq(req);//微信api接口发送登陆请求
 ```
 
-底部状态栏
+# 底部状态栏
 首先需要bean 来存储每个tab的信息，然后需要基类来实现每个tab的功能
 
 _mActivity是Fragmentation里的，是宿主activity
