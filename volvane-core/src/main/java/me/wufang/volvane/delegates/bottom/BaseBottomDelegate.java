@@ -4,6 +4,8 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.ColorInt;
 import android.support.annotation.Nullable;
+import android.view.LayoutInflater;
+import android.view.View;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -51,6 +53,14 @@ public abstract class BaseBottomDelegate extends VolvaneDelegate {
 
             TAB_BEANS.add(key);
             ITEM_DELEGATES.add(value);
+        }
+    }
+
+    @Override
+    public void onBindView(@Nullable Bundle savedInstanceState, View rootView) {
+        final int size=ITEMS.size();
+        for(int i=0;i<size;i++){
+            LayoutInflater.from(getContext()).inflate()
         }
     }
 }
